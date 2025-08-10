@@ -1,0 +1,41 @@
+name: fotordencian
+description: A new Flutter project.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.19.0 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State Management
+  provider: ^6.0.5
+
+  # Database
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+
+  # Image
+  image_picker: ^1.1.2
+  before_after: 3.2.0
+
+  # Permissions
+  permission_handler: ^12.0.1
+
+  # Formatting
+  intl: ^0.20.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  hive_generator: ^2.0.0
+  build_runner: ^2.3.3
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
