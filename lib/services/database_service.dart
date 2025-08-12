@@ -10,9 +10,13 @@ class DatabaseService {
   late Box<Album> _albumBox;
 
   Future<void> init() async {
-    // Register adapters
-    Hive.registerAdapter(AlbumAdapter());
-    Hive.registerAdapter(PhotoPairAdapter());
+    // Register adapters only once to avoid Hive errors on hot reload
+    if (!Hive.isAdapterRegistered(AlbumAdapter().typeId)) {
+      Hive.registerAdapter(AlbumAdapter());
+    }
+    if (!Hive.isAdapterRegistered(PhotoPairAdapter().typeId)) {
+      Hive.registerAdapter(PhotoPairAdapter());
+    }
 
     // Open boxes
     _albumBox = await Hive.openBox<Album>('albums');
