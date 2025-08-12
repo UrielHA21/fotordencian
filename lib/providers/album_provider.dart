@@ -33,7 +33,8 @@ class AlbumProvider extends ChangeNotifier {
   }) async {
     final newPair =
         PhotoPair(beforeImagePath: pathBefore, afterImagePath: pathAfter);
-    await _databaseService.addPhotoPair(albumName, date, newPair);
+    final normalizedDate = DateTime(date.year, date.month, date.day);
+    await _databaseService.addPhotoPair(albumName, normalizedDate, newPair);
     // This requires a more complex update than just adding to the list
     // For now, just reload all albums to reflect the change
     await _loadAlbums();
